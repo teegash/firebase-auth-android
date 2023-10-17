@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1014982841362",
+    "project_id": "fir-loginauthnate",
+    "storage_bucket": "fir-loginauthnate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014982841362:android:da730fa8cca724ba6034cb",
+        "android_client_info": {
+          "package_name": "com.nate.firebaseloginauthnate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKGijr_lwu7fTrNy9RbjaxGJ7ZTKBIV2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
