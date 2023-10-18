@@ -39,6 +39,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.nate.firebaseloginauthnate.data.productviewmodel
 import com.nate.firebaseloginauthnate.models.Product
+import com.nate.firebaseloginauthnate.navigation.ROUTE_VIEW_PRODUCT
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -67,9 +68,9 @@ fun UpdateProductsScreen(navController: NavHostController,id:String) {
         })
 
         Text(
-            text = "Add product",
+            text = "Update product",
             fontSize = 30.sp,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             color = Color.White,
             modifier = Modifier.padding(20.dp),
             fontWeight = FontWeight.Bold,
@@ -83,7 +84,7 @@ fun UpdateProductsScreen(navController: NavHostController,id:String) {
         OutlinedTextField(
             value = productName,
             onValueChange = { productName = it },
-            label = { Text(text = "Product name *") },
+            label = { Text(text = "Product name - $name", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
@@ -92,7 +93,7 @@ fun UpdateProductsScreen(navController: NavHostController,id:String) {
         OutlinedTextField(
             value = productQuantity,
             onValueChange = { productQuantity = it },
-            label = { Text(text = "Product quantity *") },
+            label = { Text(text = "Product Quantity - $quantity", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
@@ -101,11 +102,32 @@ fun UpdateProductsScreen(navController: NavHostController,id:String) {
         OutlinedTextField(
             value = productPrice,
             onValueChange = { productPrice = it },
-            label = { Text(text = "Product price *") },
+            label = { Text(text = "Product Price - $price", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
+
+//        Button(onClick = {
+//            //-----------WRITE THE UPDATE LOGIC HERE---------------//
+//            val productRepository = productviewmodel(navController, context)
+//            var updatedProduct = mutableMapOf<String, Any>()
+//            if (productName.text.trim().isNotEmpty()) {
+//                updatedProduct["productName"] = productName.text.trim()
+//            }
+//            if (productQuantity.text.trim().isNotEmpty()) {
+//                updatedProduct["productQuantity"] = productQuantity.text.trim()
+//            }
+//            if (productPrice.text.trim().isNotEmpty()) {
+//                updatedProduct["productPrice"] = productPrice.text.trim()
+//            }
+//            productRepository.updateProduct(updatedProduct,id)
+//            navController.navigate(ROUTE_VIEW_PRODUCT)
+//        }, colors = ButtonDefaults.buttonColors(Color.Black)) {
+//            Text(text = "Update", color = Color.White)
+//        }
+
+
 
         Button(onClick = {
             //-----------WRITE THE UPDATE LOGIC HERE---------------//
@@ -113,9 +135,11 @@ fun UpdateProductsScreen(navController: NavHostController,id:String) {
             productRepository.updateProduct(productName.text.trim(),productQuantity.text.trim(),
                 productPrice.text.trim(),id)
 
+            navController.navigate(ROUTE_VIEW_PRODUCT)
+
 
         }, colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Update")
+            Text(text = "Update", color = Color.White)
         }
 
     }
@@ -123,6 +147,6 @@ fun UpdateProductsScreen(navController: NavHostController,id:String) {
 
 @Preview
 @Composable
-fun update() {
+fun Updateprev() {
     UpdateProductsScreen(rememberNavController(), id = "")
 }

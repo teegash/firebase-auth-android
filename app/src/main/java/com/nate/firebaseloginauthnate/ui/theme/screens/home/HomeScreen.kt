@@ -44,14 +44,14 @@ fun HomeScreen(navController: NavHostController) {
         Button(onClick = {
             navController.navigate(ROUTE_ADD_PRODUCT)
         },modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Add Product")
+            Text(text = "Add Product", color = Color.White)
         }
         Spacer(modifier = Modifier.height(100.dp))
 
         Button(onClick = {
             navController.navigate(ROUTE_VIEW_PRODUCT)
         },modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "View Product")
+            Text(text = "View Product", color = Color.White)
         }
 
 

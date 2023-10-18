@@ -43,6 +43,8 @@ fun LoginScreen(navController:NavHostController) {
     var email by remember { mutableStateOf(TextFieldValue("")) }
     var pass by remember { mutableStateOf(TextFieldValue("")) }
     var context= LocalContext.current
+    var answer by remember { mutableStateOf("") }
+
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.DarkGray),
@@ -50,12 +52,12 @@ fun LoginScreen(navController:NavHostController) {
 
         Text(text = "Login here",
             color = Color.White,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             fontSize = 30.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedTextField(value =email , onValueChange = {email=it},
-            label = { Text(text = "Enter Email") },
+            label = { Text(text = "Enter Email", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
             modifier = Modifier
                 .fillMaxWidth()
@@ -65,7 +67,7 @@ fun LoginScreen(navController:NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedTextField(value =pass , onValueChange = {pass=it},
-            label = { Text(text = "Enter Password") },
+            label = { Text(text = "Enter Password", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
             modifier = Modifier
                 .fillMaxWidth()
@@ -73,19 +75,40 @@ fun LoginScreen(navController:NavHostController) {
         )
         Spacer(modifier = Modifier.height(20.dp))
 
+//        Button(onClick = {
+//            val mylogin=AuthViewModel(navController, context )
+//            mylogin.login(email.text.trim(),pass.text.trim())
+//            if (email.text.isEmpty() || pass.text.isEmpty()){
+//                answer = "Please input correct email and password"
+//            }
+//           }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
+//            Text(text = "Log In", color = Color.White)
+//        }
+
         Button(onClick = {
-            val mylogin=AuthViewModel(navController, context )
-            mylogin.login(email.text.trim(),pass.text.trim())
+            val mylogin = AuthViewModel(navController, context)
+            if (email.text.trim().isNotEmpty() && pass.text.trim().isNotEmpty()) {
+                mylogin.login(email.text.trim(), pass.text.trim())
+            } else {
+                answer = "Please input correct email and password"
+            }
         }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Log In")
+            Text(text = "Log In", color = Color.White)
         }
+
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
             navController.navigate(ROUTE_REGISTER)
         }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Don't have account? Click to Register")
+            Text(text = "Don't have account? Click to Register", color = Color.White)
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(text = answer,
+            color = Color.White,
+            fontSize = 10.sp)
 
     }
 

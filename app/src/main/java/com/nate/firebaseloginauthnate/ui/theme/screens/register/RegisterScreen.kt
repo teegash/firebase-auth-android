@@ -50,7 +50,7 @@ fun RegisterScreen(navController:NavHostController) {
 
         Text(text = "Register here",
             color = Color.White,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             fontSize = 30.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -94,14 +94,14 @@ fun RegisterScreen(navController:NavHostController) {
 
 
         }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Register ")
+            Text(text = "Register ", color = Color.White)
         }
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
             navController.navigate(ROUTE_LOGIN)
         }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Have an Account? Click to Login")
+            Text(text = "Have an Account? Click to Login", color = Color.White)
         }
 
     }

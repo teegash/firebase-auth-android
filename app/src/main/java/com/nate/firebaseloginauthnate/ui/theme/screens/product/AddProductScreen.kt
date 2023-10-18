@@ -43,7 +43,7 @@ fun AddProductsScreen(navController: NavHostController) {
         Text(
             text = "Add product",
             fontSize = 30.sp,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             color = Color.White,
             modifier = Modifier.padding(20.dp),
             fontWeight = FontWeight.Bold,
@@ -57,7 +57,7 @@ fun AddProductsScreen(navController: NavHostController) {
         OutlinedTextField(
             value = productName,
             onValueChange = { productName = it },
-            label = { Text(text = "Product name *") },
+            label = { Text(text = "Product name *", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
@@ -66,7 +66,7 @@ fun AddProductsScreen(navController: NavHostController) {
         OutlinedTextField(
             value = productQuantity,
             onValueChange = { productQuantity = it },
-            label = { Text(text = "Product quantity *") },
+            label = { Text(text = "Product quantity *", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
@@ -75,7 +75,7 @@ fun AddProductsScreen(navController: NavHostController) {
         OutlinedTextField(
             value = productPrice,
             onValueChange = { productPrice = it },
-            label = { Text(text = "Product price *") },
+            label = { Text(text = "Product price *", color = Color.LightGray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
@@ -90,7 +90,7 @@ fun AddProductsScreen(navController: NavHostController) {
 
 
         }, colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Save")
+            Text(text = "Save", color = Color.White)
         }
 
     }

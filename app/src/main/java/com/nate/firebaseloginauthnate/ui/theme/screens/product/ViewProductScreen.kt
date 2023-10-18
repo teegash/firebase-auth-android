@@ -52,7 +52,7 @@ fun ViewProductsScreen(navController:NavHostController) {
         ) {
             Text(text = "All products",
                 fontSize = 30.sp,
-                fontFamily = FontFamily.Cursive,
+                fontFamily = FontFamily.SansSerif,
                 color = Color.White)
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -85,12 +85,12 @@ fun ProductItem(name:String, quantity:String, price:String, id:String,
         Button(onClick = {
             productRepository.deleteProduct(id)
         }, colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Delete")
+            Text(text = "Delete", color = Color.White)
         }
         Button(onClick = {
             navController.navigate(ROUTE_UPDATE_PRODUCT+"/$id")
         }, colors = ButtonDefaults.buttonColors(Color.Black)) {
-            Text(text = "Update")
+            Text(text = "Update", color = Color.White)
         }
     }
 
