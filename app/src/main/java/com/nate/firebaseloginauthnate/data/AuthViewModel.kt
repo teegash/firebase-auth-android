@@ -45,7 +45,7 @@ class AuthViewModel(var navController: NavHostController, var context: Context){
 
                         if (it.isSuccessful){
                             Toast.makeText(context,"Registered Successfully",Toast.LENGTH_LONG).show()
-                            progress.dismiss()
+                            progress.dismiss()  // added to stop dialog box from loading on the login screen
                             navController.navigate(ROUTE_LOGIN) // route to login after successful registration
 
                         }else{
