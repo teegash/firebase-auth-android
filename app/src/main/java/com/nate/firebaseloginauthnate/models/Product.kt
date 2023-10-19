@@ -6,6 +6,8 @@ class Product{
     var price:String=""
     var id:String=""
 
+    // products features can add as many options as you want
+
     constructor(name:String,quantity:String,price:String,id:String){
         this.name=name
         this.quantity=quantity

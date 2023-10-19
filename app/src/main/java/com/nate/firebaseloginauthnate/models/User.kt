@@ -3,7 +3,9 @@ package com.nate.firebaseloginauthnate.models
 class User{
     var email:String=""
     var pass:String=""
-    var userid:String=""
+    var userid:String=""   // this is automatically generated, unique code
+
+    // This part if its for registering yu can add features like gender etc
 
     constructor(email:String,pass:String,userid:String){
         this.email=email
@@ -11,5 +13,7 @@ class User{
         this.userid=userid
 
     }
-    constructor()
+    constructor() // firebase requires this constructor, so we have to call here
 }
+
+// this will send data to authviewmodel

@@ -28,10 +28,10 @@ class productviewmodel(var navController: NavHostController,var context:Context)
         progress.setMessage("Please wait...")
     }
 
-
+// logic to save prodcts
     fun saveProduct(productName: String, productQuantity: String, productPrice: String) {
         var id = System.currentTimeMillis().toString()
-        var productData = Product(productName, productQuantity, productPrice, id)
+        var productData = Product(productName, productQuantity, productPrice, id) // import the Proudcts specifics from Product class in models
         var productRef = FirebaseDatabase.getInstance().getReference()
             .child("Products/$id")
         progress.show()
