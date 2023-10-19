@@ -34,7 +34,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nate.firebaseloginauthnate.data.AuthViewModel
 import com.nate.firebaseloginauthnate.navigation.ROUTE_LOGIN
-import com.nate.firebaseloginauthnate.navigation.ROUTE_REGISTER
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,6 +43,10 @@ fun RegisterScreen(navController:NavHostController) {
     var pass by remember { mutableStateOf(TextFieldValue("")) }
     var confirmpass by remember { mutableStateOf(TextFieldValue("")) }
     var context= LocalContext.current
+
+    // Create the AuthViewModel outside of the onClick function
+    val myregister = remember { AuthViewModel(navController,context) }
+
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.DarkGray),
@@ -85,17 +89,12 @@ fun RegisterScreen(navController:NavHostController) {
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-
         Button(onClick = {
-            val myregister=AuthViewModel(navController,context)
             myregister.signup(email.text.trim(),pass.text.trim(),confirmpass.text.trim())
-
-
-
-
         }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
             Text(text = "Register ", color = Color.White)
         }
+
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
@@ -103,12 +102,82 @@ fun RegisterScreen(navController:NavHostController) {
         }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
             Text(text = "Have an Account? Click to Login", color = Color.White)
         }
-
     }
-
-
-
 }
+//
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun RegisterScreen(navController:NavHostController) {
+//    var email by remember { mutableStateOf(TextFieldValue("")) }
+//    var pass by remember { mutableStateOf(TextFieldValue("")) }
+//    var confirmpass by remember { mutableStateOf(TextFieldValue("")) }
+//    var context= LocalContext.current
+//    Column(modifier = Modifier
+//        .fillMaxSize()
+//        .background(Color.DarkGray),
+//        horizontalAlignment = Alignment.CenterHorizontally) {
+//
+//        Text(text = "Register here",
+//            color = Color.White,
+//            fontFamily = FontFamily.SansSerif,
+//            fontSize = 30.sp)
+//        Spacer(modifier = Modifier.height(20.dp))
+//
+//        OutlinedTextField(
+//            value = email, onValueChange = { email = it },
+//            label = { Text(text = "Enter Email", color = Color.LightGray)},
+//
+//            keyboardOptions = KeyboardOptions . Default . copy (imeAction = ImeAction.Next),
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(8.dp),
+//
+//            )
+//        Spacer(modifier = Modifier.height(20.dp))
+//
+//        OutlinedTextField(value =pass , onValueChange = {pass=it},
+//            label = { Text(text = "Enter password", color = Color.LightGray) },
+//            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(8.dp)
+//        )
+//        Spacer(modifier = Modifier.height(20.dp))
+//        OutlinedTextField(value =confirmpass , onValueChange = {
+//            confirmpass=it},
+//            label = { Text(text = "Enter Confirm Pass", color = Color.LightGray) },
+//
+//            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(8.dp)
+//        )
+//        Spacer(modifier = Modifier.height(20.dp))
+//
+//
+//        Button(onClick = {
+//            val myregister=AuthViewModel(navController,context)
+//            myregister.signup(email.text.trim(),pass.text.trim(),confirmpass.text.trim())
+//
+//
+//
+//
+//        }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
+//            Text(text = "Register ", color = Color.White)
+//        }
+//        Spacer(modifier = Modifier.height(20.dp))
+//
+//        Button(onClick = {
+//            navController.navigate(ROUTE_LOGIN)
+//        }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
+//            Text(text = "Have an Account? Click to Login", color = Color.White)
+//        }
+//
+//    }
+//
+//
+//
+//}
 
 @Preview
 @Composable

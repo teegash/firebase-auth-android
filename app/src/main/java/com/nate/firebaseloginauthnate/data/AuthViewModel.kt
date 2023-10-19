@@ -21,7 +21,7 @@ class AuthViewModel(var navController: NavHostController, var context: Context){
         mAuth= FirebaseAuth.getInstance()
         progress= ProgressDialog(context)
         progress.setTitle("Loading")
-        progress.setMessage("PLease Wait.....")
+        progress.setMessage("Please Wait.....")
     }
 
     // then the functions
@@ -45,6 +45,7 @@ class AuthViewModel(var navController: NavHostController, var context: Context){
 
                         if (it.isSuccessful){
                             Toast.makeText(context,"Registered Successfully",Toast.LENGTH_LONG).show()
+                            progress.dismiss()
                             navController.navigate(ROUTE_LOGIN) // route to login after successful registration
 
                         }else{
