@@ -21,10 +21,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.nate.firebaseloginauthnate.data.productviewmodel
 import com.nate.firebaseloginauthnate.models.Upload
@@ -53,8 +55,8 @@ fun ViewUploadsScreen(navController:NavHostController) {
         ) {
             Text(text = "All uploads",
                 fontSize = 30.sp,
-                fontFamily = FontFamily.Cursive,
-                color = Color.Red)
+                fontFamily = FontFamily.SansSerif,
+                color = Color.White)
 
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -100,4 +102,11 @@ fun UploadItem(name:String, quantity:String, price:String, imageUrl:String, id:S
             Text(text = "Update")
         }
     }
+}
+@Preview
+@Composable
+fun prevViewupload() {
+
+    ViewUploadsScreen(rememberNavController())
+
 }

@@ -56,7 +56,8 @@ fun HomeScreen(navController: NavHostController) {
         }
         Spacer(modifier = Modifier.height(100.dp))
 
-        Button(onClick = { navController.navigate(ROUTE_VIEW_UPLOAD)
+        Button(onClick = {
+            navController.navigate(ROUTE_VIEW_UPLOAD)
         },modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
             Text(text = "View Upload", color = Color.White)
         }
