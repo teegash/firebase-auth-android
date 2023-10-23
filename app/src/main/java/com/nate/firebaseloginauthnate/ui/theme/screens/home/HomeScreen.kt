@@ -24,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.nate.firebaseloginauthnate.data.productviewmodel
 import com.nate.firebaseloginauthnate.navigation.ROUTE_ADD_PRODUCT
 import com.nate.firebaseloginauthnate.navigation.ROUTE_VIEW_PRODUCT
+import com.nate.firebaseloginauthnate.navigation.ROUTE_VIEW_UPLOAD
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
@@ -53,11 +54,14 @@ fun HomeScreen(navController: NavHostController) {
         },modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
             Text(text = "View Product", color = Color.White)
         }
+        Spacer(modifier = Modifier.height(100.dp))
 
+        Button(onClick = { navController.navigate(ROUTE_VIEW_UPLOAD)
+        },modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(Color.Black)) {
+            Text(text = "View Upload", color = Color.White)
+        }
 
     }
-
-
 
 }
 

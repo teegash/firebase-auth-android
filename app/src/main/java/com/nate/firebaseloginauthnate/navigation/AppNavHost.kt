@@ -13,6 +13,7 @@ import com.nate.firebaseloginauthnate.ui.theme.screens.login.LoginScreen
 import com.nate.firebaseloginauthnate.ui.theme.screens.product.AddProductsScreen
 import com.nate.firebaseloginauthnate.ui.theme.screens.product.UpdateProductsScreen
 import com.nate.firebaseloginauthnate.ui.theme.screens.product.ViewProductsScreen
+import com.nate.firebaseloginauthnate.ui.theme.screens.product.ViewUploadsScreen
 
 @Composable
 fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= rememberNavController(),startDestination:String= ROUTE_LOGIN) {
@@ -35,6 +36,9 @@ fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= reme
         }
         composable(ROUTE_UPDATE_PRODUCT+ "/{id}"){passedData ->
             UpdateProductsScreen(navController,passedData.arguments?.getString("id")!!)
+        }
+        composable(ROUTE_VIEW_UPLOAD){
+            ViewUploadsScreen(navController)
         }
     }
 
