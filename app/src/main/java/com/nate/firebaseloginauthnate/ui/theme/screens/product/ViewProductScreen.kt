@@ -37,12 +37,12 @@ fun ViewProductsScreen(navController:NavHostController) {
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        var context = LocalContext.current
-        var productRepository = productviewmodel(navController, context)
+        val context = LocalContext.current
+        val productRepository = productviewmodel(navController, context)
         val emptyProductState = remember { mutableStateOf(Product("","","","")) }
-        var emptyProductsListState = remember { mutableStateListOf<Product>() }
+        val emptyProductsListState = remember { mutableStateListOf<Product>() }
 
-        var products = productRepository.viewProducts(emptyProductState, emptyProductsListState)
+        val products = productRepository.viewProducts(emptyProductState, emptyProductsListState)
 
 
         Column(
@@ -57,7 +57,7 @@ fun ViewProductsScreen(navController:NavHostController) {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            LazyColumn(){
+            LazyColumn{
                 items(products){
                     ProductItem(
                         name = it.name,
@@ -98,7 +98,7 @@ fun ProductItem(name:String, quantity:String, price:String, id:String,
 
 @Preview
 @Composable
-fun view() {
+fun View() {
     ViewProductsScreen(rememberNavController())
 
 }
