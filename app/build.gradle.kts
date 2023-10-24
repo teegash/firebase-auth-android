@@ -60,6 +60,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.navigation:navigation-compose:2.7.4") // added this gradle
+    implementation ("androidx.navigation:navigation-compose:2.4.0-alpha06")
     implementation("androidx.compose.material3:material3")
     implementation("com.google.firebase:firebase-auth-ktx:22.1.2")
     implementation("com.google.firebase:firebase-database-ktx:20.2.2")

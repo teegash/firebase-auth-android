@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.nate.firebaseloginauthnate.ui.theme.screens.home.HomeScreen
+import com.nate.firebaseloginauthnate.ui.theme.screens.home.SplashScreen
 import com.nate.firebaseloginauthnate.ui.theme.screens.register.RegisterScreen
 import com.nate.firebaseloginauthnate.ui.theme.screens.login.LoginScreen
 import com.nate.firebaseloginauthnate.ui.theme.screens.product.AddProductsScreen
@@ -16,7 +17,7 @@ import com.nate.firebaseloginauthnate.ui.theme.screens.product.ViewProductsScree
 import com.nate.firebaseloginauthnate.ui.theme.screens.product.ViewUploadsScreen
 
 @Composable
-fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= rememberNavController(),startDestination:String= ROUTE_LOGIN) {
+fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= rememberNavController(),startDestination:String= ROUTE_SPLASH_SCREEN) {
 
     NavHost(navController = navController, modifier=modifier, startDestination = startDestination ){
         composable(ROUTE_LOGIN){
@@ -39,6 +40,9 @@ fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= reme
         }
         composable(ROUTE_VIEW_UPLOAD){
             ViewUploadsScreen(navController)
+        }
+        composable(ROUTE_SPLASH_SCREEN){
+            SplashScreen(navController)
         }
     }
 
